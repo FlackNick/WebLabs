@@ -1,11 +1,8 @@
-*{
 
-}
 body{
     margin: 0;
 }
 .header {
-    font-family: Georgia, serif;
     font-size: 30px;
     color: white;
     background-color: black;
@@ -13,23 +10,21 @@ body{
     margin: 0;
     width: 100%;
     text-align: center;
+}
+
+h1{
+    font-family: Georgia;
+}
+
+.face{
 
 }
 
-.main-icon{
-    width: 100%;
-    border: 5px solid black;
-}
-.photo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.text{
+    font-family: ".SF NS";
+    font-size: 15px;
 }
 
-.face
-{
-
-}
 pre{
     padding: 0;
     width: 40%;
@@ -38,6 +33,7 @@ pre{
     margin: 0;
     text-align: left;
 }
+
 .nike
 {
     font-size: 20px;
@@ -48,9 +44,10 @@ pre{
     padding: 5px;
     text-align: center;
 }
+
 h2
 {
-    font-family: Georgia;
+    font-family: "Times New Roman";
     font-size: 30px;
     color: white;
     background: black;
