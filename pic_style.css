@@ -30,3 +30,13 @@
     grid-row-start: 3;
     grid-row-end: 5;
 }
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: auto;
+    text-align: center;
+}
+
+.box{
+}

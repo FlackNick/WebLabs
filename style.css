@@ -1,4 +1,6 @@
-
+active{
+    color: red;
+}
 body{
     margin: 0;
 }
@@ -24,7 +26,7 @@ h1{
 }
 
 .text{
-    font-family: ".SF NS", "Times New Roman";
+    font-family: Arial, "Times New Roman";
     font-size: 1.3rem;
     text-indent: 1.5rem;
     letter-spacing: 1px;
@@ -32,7 +34,7 @@ h1{
 }
 
 .bld{
-    font-family: ".SF NS", "Times New Roman";
+    font-family: Arial, "Times New Roman";
     font-size: 2rem;
     font-weight: bold;
     text-indent: 1.5rem;
@@ -41,7 +43,7 @@ h1{
 }
 
 .for_table{
-    font-family: ".SF NS", "Times New Roman";
+    font-family: Arial, "Times New Roman";
     font-size: 1.3rem;
     text-indent: 1.5rem;
     letter-spacing: 1px;
@@ -166,5 +168,9 @@ div{
 .minus {
     text-decoration: line-through;
     text-transform: capitalize;
+}
+
+.now {
+    box-shadow: inset 0px 12px 0px 0px black;
 }
 

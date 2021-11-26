@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -16,10 +15,10 @@
     <nav>
         <div>
             <ul class="list1a text">
-                <a href="index.html"><li>Обо мне</li></a>
-                <a href="gallery.html"><li>Мои фото</li></a>
-                <li>Мои работы</li>
-                <li>Связаться со мной</li>
+                <a href="index.html"><li class="nav">Обо мне</li></a>
+                <a href="gallery.html"><li class="nav">Мои фото</li></a>
+                <a href="my_works.html"><li class="nav">Мои работы</li></a>
+                <a href="my_data.html"><li class="nav">Связаться со мной</li></a>
             </ul>
         </div>
     </nav>
@@ -35,62 +34,40 @@
         <div class="pictures"><img class="pic" src="p4.jpeg" width="700" height="400"></div>
         <div class="pictures"><img class="pic" src="p5.jpeg" width="250" height="400"></div>
     </div>
-    <section>
-        <div><h2>Таблица тренировок в зале на понедельник</h2></div>
     </section>
-    </section>
+    <div><h2>Таблица тренировок в зале на понедельник</h2></div>
     <section class="table">
-        <div class="container">
-        <table class="for_table">
-            <tr>
-                <th class="bld">Наименование</th>
-                <th class="bld">Количество подходов</th>
-                <th class="bld">Вес кг</th>
-            </tr>
-            <tr>
-                <td>Жим штанги на наклонной скамье</td>
-                <td>5</td>
-                <td>65</td>
-            </tr>
-            <tr>
-                <td>Хаммер</td>
-                <td>4</td>
-                <td>30</td>
-            </tr>
-            <tr>
-                <td>Сведение рук в бабочке</td>
-                <td>5</td>
-                <td>77</td>
-            </tr>
-            <tr>
-                <td>Сгибание штанги на бицепс</td>
-                <td>5</td>
-                <td>30</td>
-            </tr>
-            <tr>
-                <td>Сгибание гантели на бицепс</td>
-                <td>4</td>
-                <td>15-12-10-5</td>
-            </tr>
-            <tr>
-                <td>Работа с предплечьем</td>
-                <td>5</td>
-                <td>40</td>
-            </tr>
-        </table>
-    </div>
+        <div class="fullinfo">
+            <div class="grid text">
+                <div class="box"><h2>Наименование</h2></div>
+                <div class="box"><h2>Количество подходов</h2></div>
+                <div class="box"><h2>Вес кг</h2></div>
+                <div class="box">Жим штанги на наклонной скамье</div>
+                <div class="box">5</div>
+                <div class="box">65</div>
+                <div class="box">Хаммер</div>
+                <div class="box">4</div>
+                <div class="box">30</div>
+                <div class="box">Сведение рук в бабочке</div>
+                <div class="box">5</div>
+                <div class="box">77</div>
+                <div class="box">Сгибание штанги на бицепс</div>
+                <div class="box">5</div>
+                <div class="box">30</div>
+                <div class="box">Сгибание гантели на бицепс</div>
+                <div class="box">4</div>
+                <div class="box">15-12-10-5</div>
+                <div class="box">Работа с предплечьем</div>
+                <div class="box">5</div>
+                <div class="box">40</div>
+            </div>
+        </div>
     </section>
 </main>
 <footer>
     <div><h2>Университет ИТМО</h2></div>
-    <div><h2>ABC
-        <script>
-                let spd = window.performance.timing;
-                let pageloadtime = time.loadEventStart - time.navigationStart;
-                document.write('${pageloadtime}');
-                document.write("abc");
-        </script>
-    </h2></div>
+    <div><h2 id="load-time"></h2></div>
 </footer>
 </body>
+<script src="scr.js"></script>
 </html>
