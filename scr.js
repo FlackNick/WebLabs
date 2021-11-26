@@ -1,7 +1,7 @@
 (function () {
     window.startTime = (new Date).getTime();
     window.addEventListener('load',function () {
-        document.getElementById('load-time').innerHTML=((new Date).getTime() - window.startTime) + 'ms';
+        document.getElementById('load-time').innerHTML=((new Date).getTime() - window.startTime)/1000 + 'seconds';
     });
 })();
 
@@ -19,6 +19,9 @@ window.addEventListener('load',function () {
             break;
         case "/untitled1/my_data.html":
             elements[3].classList.add('now');
+            break;
+        case "/untitled1/dynamic_table.html":
+            elements[4].classList.add('now');
             break;
         default:
             break;
