@@ -1,88 +1,73 @@
-if(typeof window.DynamicTable !== 'function') {
+const addTaskBtn = document.getElementById('add-task-btn');
+const deskTaskInput = document.getElementById('description-task');
+const todosWrapper = document.querySelector('.todos-wrapper');
 
-    function DynamicTable(GLOB, htmlTable, config) {
-        if ( !(this instanceof DynamicTable) ) {
-            return new DynamicTable(GLOB, htmlTable, config);
-        }
-        var DOC       = GLOB.document,
-            tableRows = htmlTable.rows,
-            RLength   = tableRows.length,
-            CLength   = tableRows[0].cells.length,
-            inElement = null,
-            button    = null,
-            butText   = null,
-            self      = this,
-            i,j;
+let tasks;
+!localStorage.tasks ? tasks = [] : tasks = JSON.parse(localStorage.getItem('tasks'));
 
-        this.insertButtons = function() {
-            inElement = DOC.createElement("P");
-            inElement.className = "d-butts";
+let todoItemElems = [];
 
-            button = DOC.createElement("BUTTON");
-            button.onclick = this.delRow;
+function Task(description) {
+    this.description = description;
+    this.completed = false;
+}
 
-            butText = DOC.createTextNode("-");
-            button.appendChild(butText);
-            inElement.appendChild(button);
-            button = DOC.createElement("BUTTON");
-            button.onclick = this.addRow;
+const createTemplate = (task, index) => {
+    return `<div class="todo-item ${task.completed ? 'checked' : ''}">
+                    <div class="description">${task.description}</div>
+                    <div class="buttons">
+                        <input onclick="completeTask(${index})" class="btn-complete" type="checkbox" ${task.completed ? 'checked' : ''}>
+                        <button onclick="deleteTask(${index})" class="btn-delete btn">Delete</button>
+                    </div>
+                </div>`
+}
 
-            butText = DOC.createTextNode("+");
-            button.appendChild(butText);
-            inElement.appendChild(button);
-            return inElement;
-        };
-        this.addRow = function(ev) {
-            var e         = ev||GLOB.event,
-                target    = e.target||e.srcElement,
-                row       = target.parentNode.parentNode.parentNode,
-                cellCount = row.cells.length,
-                index     = row.rowIndex + 1,
-                i;
-            htmlTable.insertRow(index);
-            for(i=0; i < cellCount; i += 1) {
+const filterTasks = () => {
+    const activeTasks = tasks.length && tasks.filter(item => item.completed == false);
+    const completedTasks = tasks.length && tasks.filter(item => item.completed == true);
+    tasks = [...activeTasks,...completedTasks];
+}
 
-                htmlTable.rows[index].insertCell(i);
-                if(i == cellCount-1) {
-                    inElement = self.insertButtons();
-                } else {
-                    inElement = DOC.createElement("INPUT");
-                    inElement.name  = config[i+1]+"[]";
-                }
-                htmlTable.rows[index].cells[i].appendChild(inElement);
-            }
-            inElement = null;
-            return false;
-        };
-
-        this.delRow = function(ev) {
-            if(tableRows.length > 2) {
-                htmlTable.deleteRow(this.parentNode.parentNode.parentNode.rowIndex);
-            } else {
-                return false;
-            }
-        };
-
-        return (function() {
-            for( i = 1; i < RLength; i += 1 ) {
-                for( j = 0; j < CLength; j += 1 ) {
-                    if( j + 1 == CLength ) {
-                        inElement = self.insertButtons();
-                    } else {
-                        inElement = DOC.createElement("INPUT");
-                        inElement.value = tableRows[i].cells[j].firstChild.data;
-                        inElement.name  = config[j+1]+"[]";
-                        tableRows[i].cells[j].firstChild.data = "";
-                    }
-                    tableRows[i].cells[j].appendChild(inElement);
-                    inElement = null;
-                }
-            }
-
-        }());
+const fillHtmlList = () => {
+    todosWrapper.innerHTML = "";
+    if(tasks.length > 0) {
+        filterTasks();
+        tasks.forEach((item, index) => {
+            todosWrapper.innerHTML += createTemplate(item, index);
+        });
+        todoItemElems = document.querySelectorAll('.todo-item');
     }
+}
 
-    new DynamicTable( window,
-        document.getElementById("dynamic"),
-        {1:"val1", 2:"val2", 3:"val3", 4:"val4"} );
+fillHtmlList();
+
+const updateLocal = () => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+const completeTask = index => {
+    tasks[index].completed = !tasks[index].completed;
+    if(tasks[index].completed) {
+        todoItemElems[index].classList.add('checked');
+    } else {
+        todoItemElems[index].classList.remove('checked');
+    }
+    updateLocal();
+    fillHtmlList();
+}
+
+addTaskBtn.addEventListener('click', () =>{
+    tasks.push(new Task(deskTaskInput.value));
+    updateLocal();
+    fillHtmlList();
+    deskTaskInput.value = '';
+})
+
+const deleteTask = index => {
+    todoItemElems[index].classList.add('delition')
+    setTimeout(() => {
+        tasks.splice(index, 1);
+        updateLocal();
+        fillHtmlList();
+    }, 500)
 }

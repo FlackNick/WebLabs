@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="for_todo.css">
     <title>LABA1</title>
 </head>
 <body>
@@ -25,17 +26,27 @@
 </header>
 <main>
     <section>
-        <div><h2>Список моих работ</h2></div>
-        <div class="text">
-            <spam>На данный момент этот сайт является моей единственной и неповторимой работой, но этого достаточно, чтобы понять мой гений</spam>
+        <div><h2>Здесь вы можете создать свой список дел</h2></div>
+        <div class="flex-wrapper">
+            <div class="add-todo-wrapper">
+                <div class="input-wrapper">
+                    <input type="text" id="description-task">
+                </div>
+                <div class="buttton-wrapper">
+                    <button class="btn" id="add-task-btn">Добавить</button>
+                </div>
+            </div>
+            <h3>Задачи на день:</h3>
+            <div class="todos-wrapper"></div>
         </div>
     </section>
 </main>
 <footer>
-    <div><h2>Университет ИТМО</h2></div>
-    <div><h2 id="load-time"></h2></div>
+    <div><h2>Университет ИТМО </h2></div>
+    <div><h3 id="load-time"></h3></div>
 </footer>
 </body>
 <script src="scr.js"></script>
+<script src="dyma.js"></script>
 </body>
 </html>

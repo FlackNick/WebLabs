@@ -20,7 +20,7 @@ window.addEventListener('load',function () {
         case "/untitled1/my_data.html":
             elements[3].classList.add('now');
             break;
-        case "/untitled1/dynamic_table.html":
+        case "/untitled1/toDolist.html":
             elements[4].classList.add('now');
             break;
         default:
