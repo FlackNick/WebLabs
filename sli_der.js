@@ -7,7 +7,6 @@ new Swiper('.image-slider', {
         el: '.swiper-pagination',
         clickable: true,
     },
-    autoHeight: true,
     loop: true,
     autoplay: {
         delay: 2000,
@@ -15,5 +14,5 @@ new Swiper('.image-slider', {
         disableOnInteraction: true
     },
     speed: 1000,
-    
+
 });
