@@ -57,6 +57,9 @@ const completeTask = index => {
 }
 
 addTaskBtn.addEventListener('click', () =>{
+    if (deskTaskInput.value == ''){
+        return false;
+    }
     tasks.push(new Task(deskTaskInput.value));
     updateLocal();
     fillHtmlList();

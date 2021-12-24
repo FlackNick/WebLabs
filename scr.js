@@ -6,24 +6,11 @@
 })();
 
 window.addEventListener('load',function () {
-    let elements = document.querySelectorAll('.nav');
-    switch(document.location.pathname) {
-        case "/untitled1/index.html":
-            elements[0].classList.add('now');
-            break;
-        case "/untitled1/gallery.html":
-            elements[1].classList.add('now');
-            break;
-        case "/untitled1/my_works.html":
-            elements[2].classList.add('now');
-            break;
-        case "/untitled1/my_data.html":
-            elements[3].classList.add('now');
-            break;
-        case "/untitled1/toDolist.html":
-            elements[4].classList.add('now');
-            break;
-        default:
-            break;
-    }
+    let elements = document.querySelectorAll('.nav_ref');
+    elements.forEach(element => {
+        if (element.href == window.location.href) {
+            let child = element.querySelectorAll('.nav');
+            child[0].classList.add('now');
+        }
+    });
 });
